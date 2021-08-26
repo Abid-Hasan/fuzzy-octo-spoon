@@ -30,4 +30,32 @@ function totalSales(shirtQuantity, pantQuantity, shoeQuantity) {
     return shirtSales + pantSales + shoeSales;
 }
 
-console.log(totalSales(1, 1, 1));
+function deliveryCost(tShirt) {
+    // Input validation
+    if (typeof tShirt != "number") {
+        return "Please provide a valid number.";
+    }
+    if (tShirt < 0) {
+        return "Quantity can not be negative.";
+    }
+
+    let cost = 0;
+    // from 201
+    if (tShirt > 200) {
+        const tShirtMoreThan200 = tShirt - 200;
+        cost += tShirtMoreThan200 * 50;
+        tShirt -= tShirtMoreThan200;
+    }
+    // from 101 to 200
+    if (tShirt > 100) {
+        const tShirtMoreThan100 = tShirt - 100;
+        cost += tShirtMoreThan100 * 80;
+        tShirt -= tShirtMoreThan100;
+    }
+    // from 0 to 100
+    cost += tShirt * 100;
+
+    return cost;
+}
+
+console.log(deliveryCost(300));
