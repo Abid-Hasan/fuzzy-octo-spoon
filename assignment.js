@@ -1,3 +1,7 @@
+//========//
+// Task 1 //
+//========//
+
 function seerToMon(seer) {
     // Input validation
     if (typeof seer != "number") {
@@ -11,6 +15,10 @@ function seerToMon(seer) {
     const mon = seer / 40;
     return mon;
 }
+
+//========//
+// Task 2 //
+//========//
 
 function totalSales(shirtQuantity, pantQuantity, shoeQuantity) {
     // Input validation
@@ -29,6 +37,10 @@ function totalSales(shirtQuantity, pantQuantity, shoeQuantity) {
     // Returning total sales
     return shirtSales + pantSales + shoeSales;
 }
+
+//========//
+// Task 3 //
+//========//
 
 function deliveryCost(tShirt) {
     // Input validation
@@ -58,4 +70,29 @@ function deliveryCost(tShirt) {
     return cost;
 }
 
-console.log(deliveryCost(300));
+//========//
+// Task 4 //
+//========//
+
+function perfectFriend(friends) {
+    // Input validation
+    if (!(Array.isArray(friends))) {
+        return "Please provide an array of your friends' name.";
+    }
+    if (friends.length == 0) {
+        return "Go, make some friendships first.";
+    }
+    for (const friend of friends) {
+        if (typeof friend != "string") {
+            return "Each element of the array must be string.";
+        }
+    }
+
+    // Looping through the elements
+    for (const friend of friends) {
+        if (friend.length == 5) {
+            return friend;
+        }
+    }
+    return "No friend is perfect.";
+}
